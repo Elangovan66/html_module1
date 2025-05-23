@@ -1,0 +1,20 @@
+<form onsubmit="showConfirmation(event)">
+  <input type="text" placeholder="Name" required autofocus><br>
+  <input type="email" placeholder="Email" required><br>
+  <input type="date" required><br>
+  <select required>
+    <option value="">Select Event</option>
+    <option value="music">Music Fest</option>
+    <option value="tech">Tech Talk</option>
+  </select><br>
+  <textarea placeholder="Your message..."></textarea><br>
+  <button type="submit">Register</button>
+  <output id="confirmation"></output>
+</form>
+
+<script>
+  function showConfirmation(e) {
+    e.preventDefault();
+    document.getElementById("confirmation").value = "Thank you for registering!";
+  }
+</script>
