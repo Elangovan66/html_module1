@@ -1,0 +1,17 @@
+<!-- Feedback Form -->
+  <form>
+    <input type="text" id="phone" placeholder="Phone Number" onblur="validatePhone(this)">
+    <select onchange="showFee(this)">
+      <option value="0">Free</option>
+      <option value="100">Paid - $100</option>
+    </select>
+    <p id="fee"></p>
+    <button type="button" onclick="alert('Submitted!')">Submit</button>
+  </form>
+  <!-- Character Counter -->
+  <h3>Feedback</h3>
+  <textarea onkeyup="countChars(this)" placeholder="Type feedback..."></textarea>
+  <p id="charCount"></p>
+
+  <p>Thank you for your interest! Registration coming soon.</p>
+  <a href="index.html">Back to Events</a>
