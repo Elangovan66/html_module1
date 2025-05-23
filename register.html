@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    img {
+      transition: 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Register for the Event</h1>
+  
+  <!-- Registration Form -->
+  <form onsubmit="showConfirmation(event)">
+    <input type="text" placeholder="Name" required autofocus><br>
+    <input type="email" placeholder="Email" required><br>
+    <input type="date" required><br>
+    <select required>
+      <option value="">Select Event</option>
+      <option value="music">Music Fest</option>
+      <option value="tech">Tech Talk</option>
+    </select><br>
+    <textarea placeholder="Your message..."></textarea><br>
+    <button type="submit">Register</button>
+    <output id="confirmation"></output>
+  </form>
+
+  <hr>
+
+  <!-- Image Enlargement -->
+  <h3>Event Preview</h3>
+  <img src="event1.jpg" ondblclick="enlargeImage(this)" width="100" alt="Event Image">
+
+  
+  <script>
+    function showConfirmation(e) {
+      e.preventDefault();
+      document.getElementById("confirmation").value = "Thank you for registering!";
+    }
+
+    function validatePhone(input) {
+      if (!/^\d{10}$/.test(input.value)) {
+        alert("Invalid phone number! Must be 10 digits.");
+      }
+    }
+
+    function showFee(sel) {
+      document.getElementById("fee").textContent = "Fee: $" + sel.value;
+    }
+
+    function enlargeImage(img) {
+      img.style.width = "200px";
+    }
+
+    function countChars(textarea) {
+      document.getElementById("charCount").textContent = textarea.value.length + " characters";
+    }
+  </script>
+
+</body>
+</html>
