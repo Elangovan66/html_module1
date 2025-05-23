@@ -1,0 +1,15 @@
+<video id="promo" controls oncanplay="videoReady()">
+  <source src="promo.mp4" type="video/mp4">
+  Your browser does not support video.
+</video>
+<p id="videoMsg"></p>
+
+<script>
+  function videoReady() {
+    document.getElementById("videoMsg").textContent = "Video ready to play";
+  }
+
+  window.onbeforeunload = function () {
+    return "Are you sure you want to leave? Your form data may be lost.";
+  };
+</script>
