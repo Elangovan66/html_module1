@@ -1,0 +1,129 @@
+
+<head>
+  <style>
+    #welcomeBanner {
+      background-color: lightblue;
+      padding: 10px;
+    }
+    .highlight {
+      background-color: rgb(199, 102, 255);
+    }
+  </style>
+</head>
+<body>
+  <div id="welcomeBanner">
+    Welcome folks!!!  <span style="color:rgb(236, 163, 28); font-weight:bold;">welcome to the builder village community!</span>
+  </div>
+  <p class="highlight">Join our upcoming event!</p>
+</body>
+</head>
+<body>
+
+  <nav>
+  <a href="#home">Home</a> |
+  <a href="event.html">Events</a> |
+  <a href="#contact">Contact</a> |
+  <a href="help.html" target="_blank">Help</a>
+</nav>
+
+<section id="home"><h2>Home</h2></section>
+ <p>With a close-knit community that cherishes its roots, we celebrate local festivals, preserve age-old traditions, 
+    and embrace sustainable living. Whether you're drawn to the warmth of our people, the scenic surroundings, 
+    or the flavors of our authentic cuisine, [Village Name] welcomes you to experience its charm firsthand.</p>
+<section id="events"><h2>Events</h2></section>
+<table>
+  <caption>Past Events Gallery</caption>
+  <tr>
+    <td><img src="event1.jpg" alt="Event 1" title="Event 1" class="imgStyle"></td>
+    <td><img src="event2.jpg" alt="Event 2" title="Event 2" class="imgStyle"></td>
+    <td><img src="event3.jpg" alt="Event 3" title="Event 3" class="imgStyle"></td>
+  </tr>
+  <tr>
+    <td colspan="3">A glimpse of community joy!</td>
+  </tr>
+</table>
+
+<style>
+  .imgStyle {
+    border: 2px solid black;
+    width: 150px;
+  }
+</style>
+<section id="contact"><h2>Contact</h2></section>
+
+
+</script>
+<video id="promo" controls oncanplay="videoReady()">
+  <source src="video1.mp4" type="video/mp4">
+  Your browser does not support video.
+</video>
+<p id="videoMsg"></p>
+
+<script>
+  function videoReady() {
+    document.getElementById("videoMsg").textContent = "Video alagar celebration ";
+  }
+
+  window.onbeforeunload = function () {
+    return "Are you sure you want to leave? Your form data may be lost.";
+  };
+</script>
+<select id="eventType" onchange="savePreference(this.value)">
+  <option value="">Choose</option>
+  <option value="music">Music</option>
+  <option value="tech">Tech</option>
+</select>
+<button onclick="clearPrefs()">Clear Preferences</button>
+
+<script>
+  document.getElementById("eventType").value = localStorage.getItem("eventType");
+
+  function savePreference(value) {
+    localStorage.setItem("eventType", value);
+  }
+
+  function clearPrefs() {
+    localStorage.clear();
+    sessionStorage.clear();
+  }
+ 
+</script>
+<button onclick="findEvents()">Find Nearby Events</button>
+<p id="location"></p>
+
+<style>
+  .imgStyle {
+    border: 2px solid black;
+    width: 150px;
+  }
+</style>
+<table>
+  <caption>Past Events Gallery</caption>
+  <tr>
+    <td><img src="event4.jpg" alt="Event 2" title="Event 2" class="imgStyle"></td>
+  </tr>
+  <tr>
+    <td colspan="3">A glimpse of community joy!</td>
+  </tr>
+</table>
+<script>
+  function findEvents() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          document.getElementById("location").textContent =
+            `Lat: ${pos.coords.latitude}, Lon: ${pos.coords.longitude}`;
+        },
+        err => {
+          alert("Error: " + err.message);
+        },
+        { enableHighAccuracy: true }
+      );
+    } else {
+      alert("Geolocation not supported.");
+    }
+  }
+</script>
+
+</body>
+</html>
